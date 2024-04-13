@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadLevell : MonoBehaviour
+public class LoadLevel : MonoBehaviour
 {
     private const float _dalay = 0.9f;
 
