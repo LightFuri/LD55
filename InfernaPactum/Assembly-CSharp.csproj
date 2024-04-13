@@ -71,6 +71,7 @@
     <Compile Include="Assets\Code\GameLogic\Spawner\InputController.cs" />
     <Compile Include="Assets\Code\ConfigLogic\BootStraper.cs" />
     <Compile Include="Assets\Code\ConfigLogic\ConstProvider.cs" />
+    <Compile Include="Assets\Code\GameLogic\Mobs\FurcasScript.cs" />
     <Compile Include="Assets\Code\GameLogic\Map\ObjectsEnum.cs" />
   </ItemGroup>
   <ItemGroup>

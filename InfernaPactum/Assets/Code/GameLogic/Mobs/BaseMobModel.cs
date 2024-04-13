@@ -12,7 +12,8 @@ public class BaseMobModel : MonoBehaviour
     public int AttackRange { get; set; }
     public int CastPrice { get; set; }
     public bool IsEnemy { get; set; }
-    public void MoveToClosestEnemy(BaseMobModel? enemy)
+
+    public void MoveToClosestEnemy(BaseMobModel enemy)
     {
         if (enemy != null)
         {
@@ -28,25 +29,42 @@ public class BaseMobModel : MonoBehaviour
             int newX = currentPosition.X + stepX;
             int newY = currentPosition.Y + stepY;
 
-            if (newX >= 0 && newX < MapModel.Map.GetLength(0) && newY >= 0 && newY < MapModel.Map.GetLength(1))
+            if (CanMoveTo(newX, newY))
             {
-                if (MapModel.Map[newX, newY] == ObjectsEnum.Empty)
+                Move(currentPosition, newX, newY);
+            }
+            else
+            {
+                if (CanMoveTo(currentPosition.X + stepX, currentPosition.Y))
                 {
-                    MapModel.Map[currentPosition.X, currentPosition.Y] = ObjectsEnum.Empty;
-
-                    currentPosition.X = newX;
-                    currentPosition.Y = newY;
-                    this.Position = currentPosition;
-
-                    MapModel.Map[currentPosition.X, currentPosition.Y] = this.MobType;
+                    Move(currentPosition, currentPosition.X + stepX, currentPosition.Y);
+                }
+                else if (CanMoveTo(currentPosition.X, currentPosition.Y + stepY))
+                {
+                    Move(currentPosition, currentPosition.X, currentPosition.Y + stepY);
                 }
             }
         }
     }
-    public BaseMobModel? FindClosestEnemy()
+
+    private bool CanMoveTo(int x, int y)
+    {
+        return x >= 0 && x < MapModel.Map.GetLength(0) && y >= 0 && y < MapModel.Map.GetLength(1) && MapModel.Map[x, y] == ObjectsEnum.Empty;
+    }
+
+    private void Move(Point currentPosition, int newX, int newY)
+    {
+        MapModel.Map[currentPosition.X, currentPosition.Y] = ObjectsEnum.Empty;
+        currentPosition.X = newX;
+        currentPosition.Y = newY;
+        this.Position = currentPosition;
+        this.transform.localPosition = new Vector3(Position.X, Position.Y, 1);
+        MapModel.Map[newX, newY] = this.MobType;
+    }
+    public BaseMobModel FindClosestEnemy()
     {
         Point currentPosition = this.Position;
-        BaseMobModel? closestEnemy = null;
+        BaseMobModel closestEnemy = null;
         double closestDistance = double.MaxValue;
 
         BaseMobModel[] mobs = FindObjectsOfType<BaseMobModel>();
@@ -70,7 +88,7 @@ public class BaseMobModel : MonoBehaviour
         return closestEnemy;
     }
 
-    public bool IsEnemyInRange(BaseMobModel? enemy)
+    public bool IsEnemyInRange(BaseMobModel enemy)
     {
         if (enemy == null)
         {
@@ -81,19 +99,16 @@ public class BaseMobModel : MonoBehaviour
         int dx = currentPosition.X - enemy.Position.X;
         int dy = currentPosition.Y - enemy.Position.Y;
         double distance = Math.Sqrt(dx * dx + dy * dy);
+        int roundedDistance = (int)Math.Round(distance);
 
-        return distance <= this.AttackRange;
+        return roundedDistance <= this.AttackRange;
     }
 
-    public void Attack(BaseMobModel? enemy)
+    public void Attack(BaseMobModel enemy)
     {
         if (enemy != null)
         {
             enemy.Health -= this.Damage;
-            if (enemy.Health <= 0)
-            {
-                MobSpawner.Remove(enemy);
-            }
         }
     }
 
