@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52734132778021529}
   - component: {fileID: 4641385036036327703}
+  - component: {fileID: 6623063550822225961}
   m_Layer: 0
   m_Name: FurcasEnemy
   m_TagString: Untagged
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6623063550822225961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295808983834762200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f1c268c822f75468d9ef9147b033e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -60,18 +60,20 @@
     <Analyzer Include="C:\Unity\2022.3.24f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\GameLogic\Spawner\SpawnHandler.cs" />
     <Compile Include="Assets\Code\GameLogic\Map\Cell.cs" />
+    <Compile Include="Assets\Code\GameLogic\Spawner\SpawnState.cs" />
+    <Compile Include="Assets\Code\GameLogic\Mobs\BaseMobModel.cs" />
     <Compile Include="Assets\Code\GameLogic\Map\MapModel.cs" />
     <Compile Include="Assets\Code\GameLogic\Sound\SoundSlider.cs" />
     <Compile Include="Assets\Code\GameLogic\Map\RenderMap.cs" />
-    <Compile Include="Assets\Code\GameLogic\MobSpawner\SpawnState.cs" />
     <Compile Include="Assets\Code\GameLogic\Map\Point.cs" />
     <Compile Include="Assets\Code\GameLogic\Sound\SoundHandler.cs" />
     <Compile Include="Assets\Code\ConfigLogic\LoadLevel.cs" />
+    <Compile Include="Assets\Code\GameLogic\Spawner\InputController.cs" />
     <Compile Include="Assets\Code\ConfigLogic\BootStraper.cs" />
     <Compile Include="Assets\Code\ConfigLogic\ConstProvider.cs" />
-    <Compile Include="Assets\Code\GameLogic\MobSpawner\InputController.cs" />
-    <Compile Include="Assets\Code\GameLogic\MobSpawner\SpawnHandler.cs" />
+    <Compile Include="Assets\Code\GameLogic\Mobs\FurcasScript.cs" />
     <Compile Include="Assets\Code\GameLogic\Map\ObjectsEnum.cs" />
   </ItemGroup>
   <ItemGroup>
