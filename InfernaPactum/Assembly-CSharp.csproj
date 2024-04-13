@@ -60,9 +60,12 @@
     <Analyzer Include="C:\Unity\2022.3.24f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Code\Logics\Global\BootStraper.cs" />
-    <Compile Include="Assets\Code\Logics\Services\LoadLeaval.cs" />
-    <Compile Include="Assets\Code\Logics\Services\ConstProvider.cs" />
+    <Compile Include="Assets\Code\GameLogic\Map\GlobalGameState.cs" />
+    <Compile Include="Assets\Code\GameLogic\Map\MapModel.cs" />
+    <Compile Include="Assets\Code\ConfigLogic\LoadLevel.cs" />
+    <Compile Include="Assets\Code\ConfigLogic\BootStraper.cs" />
+    <Compile Include="Assets\Code\ConfigLogic\ConstProvider.cs" />
+    <Compile Include="Assets\Code\GameLogic\Map\ObjectsEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

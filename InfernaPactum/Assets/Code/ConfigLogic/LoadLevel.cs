@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadLeaval : MonoBehaviour
+public class LoadLevel : MonoBehaviour
 {
     private const float _dalay = 0.9f;
 
@@ -12,9 +12,9 @@ public class LoadLeaval : MonoBehaviour
     private int _IDSence = 1;
     private AsyncOperation _asyncOperation;
 
-    public void Init(int IDLeaval)
+    public void Init(int IDLevel)
     {
-       _IDSence = IDLeaval;
+       _IDSence = IDLevel;
        _loadBar = FindObjectOfType<Slider>();
         Load();
      
