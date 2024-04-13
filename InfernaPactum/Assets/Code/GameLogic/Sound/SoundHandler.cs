@@ -6,9 +6,12 @@ public class SoundHandler : MonoBehaviour
 {
      private AudioSource _audioSource;
      private SoundSlider _soundSlider;
+    private AudioClip _audioClip;
 
     private void Start()
     {
+       
+
         _audioSource = GetComponent<AudioSource>();
 
         _soundSlider = FindObjectOfType<SoundSlider>();
@@ -23,7 +26,5 @@ public class SoundHandler : MonoBehaviour
     public void ApplySound(float volume)
     {
         _audioSource.volume = volume;
-    }
-
-
+    }   
 }
