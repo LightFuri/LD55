@@ -67,7 +67,8 @@ public class InputConroller : MonoBehaviour
 
             var properties = Instantiate(mob, currentCell.transform.position, Quaternion.identity, transform).GetComponent<BaseMobModel>();
 
-            properties.Health = 2;
+            properties.Health = 3;
+            properties.MaxHealth = 3;
             properties.Damage = 1;
             properties.AttackRange = 1;
             properties.Position = cellPosition.Position;

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BootStrap.unity
     guid: a1c79eaf4b9dc5d4b81a08525b233ef9
   - enabled: 1
+    path: Assets/Scenes/Lobbi.unity
+    guid: 161e4a77564bf004781024e7083ea051
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

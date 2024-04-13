@@ -8,6 +8,7 @@ public class BaseMobModel : MonoBehaviour
     public ObjectsEnum MobType { get; set; }
     public Point Position { get; set; }
     public int Health { get; set; }
+    public int MaxHealth { get; set; }
     public int Damage { get; set; }
     public int AttackRange { get; set; }
     public int CastPrice { get; set; }
@@ -104,12 +105,15 @@ public class BaseMobModel : MonoBehaviour
         return roundedDistance <= this.AttackRange;
     }
 
-    public void Attack(BaseMobModel enemy)
+    public void Attack(BaseMobModel enemy, HealthView healthView)
     {
         if (enemy != null)
         {
+            
             enemy.Health -= this.Damage;
+            healthView.Render(Health /MaxHealth);
         }
+            
     }
 
     public void UseSkill()

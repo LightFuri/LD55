@@ -2,8 +2,11 @@
 
 public class FurcasScript : BaseMobModel
 {
+    [SerializeField] private HealthView healthView;
+
     private void Start()
     {
+        healthView = GetComponent<HealthView>();
         InvokeRepeating("RepeatedUpdate", 0f, 1f);
     }
 
@@ -15,17 +18,21 @@ public class FurcasScript : BaseMobModel
             var isEnemyInAttackRange = IsEnemyInRange(closestEnemy);
             if (isEnemyInAttackRange)
             {
-                Attack(closestEnemy);
+                Attack(closestEnemy, healthView);
+               
             }
             else
             {
                 MoveToClosestEnemy(closestEnemy);
             }
+            
         }
         else
         {
             MapModel.Map[Position.X, Position.Y] = ObjectsEnum.Empty;
             Destroy(gameObject);
         }
+
+        
     }
 }

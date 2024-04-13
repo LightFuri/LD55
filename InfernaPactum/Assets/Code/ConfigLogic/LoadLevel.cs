@@ -19,7 +19,7 @@ public class LoadLevel : MonoBehaviour
      
     }
 
-    private void Load(int value)
+    public void Load(int value)
     {
         if(gameObject.activeSelf == false)
             gameObject.SetActive(true);
