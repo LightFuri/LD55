@@ -8,14 +8,14 @@ public class LoadLevel : MonoBehaviour
     private const float _dalay = 0.9f;
 
     private Slider _loadBar;
-    private int _IDSence = 1;
+    private int _IDScene = 1;
     private AsyncOperation _asyncOperation;
 
     public void Init(int IDLevel)
     {
-       _IDSence = IDLevel;
+       _IDScene = IDLevel;
        _loadBar = FindObjectOfType<Slider>();
-        Load(_IDSence);
+        Load(_IDScene);
      
     }
 
@@ -24,10 +24,10 @@ public class LoadLevel : MonoBehaviour
         if(gameObject.activeSelf == false)
             gameObject.SetActive(true);
      
-        StartCoroutine(LoadSenceCor(value));
+        StartCoroutine(LoadSceneCore(value));
     }
 
-    private IEnumerator LoadSenceCor(int value)
+    private IEnumerator LoadSceneCore(int value)
     {
         yield return new WaitForSeconds(1f);
         _asyncOperation = SceneManager.LoadSceneAsync(value);

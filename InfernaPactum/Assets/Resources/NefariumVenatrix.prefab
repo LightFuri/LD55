@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1421952084543350659}
   - component: {fileID: 831197103915367627}
-  - component: {fileID: -6358938092201375349}
+  - component: {fileID: 4411182525464692987}
   m_Layer: 0
-  m_Name: Furcas
+  m_Name: NefariumVenatrix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9249804, g: 0.96862745, b: 0.2941177, a: 1}
+  m_Color: {r: 0.43214846, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-6358938092201375349
+--- !u!114 &4411182525464692987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5650440145681694360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9f1c268c822f75468d9ef9147b033e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9eecfde281bf6d34297ee0ec6d30ddaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7107371897142756753

@@ -53,15 +53,35 @@ public class BaseMobModel : MonoBehaviour
         return x >= 0 && x < MapModel.Map.GetLength(0) && y >= 0 && y < MapModel.Map.GetLength(1) && MapModel.Map[x, y] == ObjectsEnum.Empty;
     }
 
+    private IEnumerator SmoothMove(Vector3 start, Vector3 end, float duration)
+    {
+        float elapsed = 0;
+        while (elapsed < duration)
+        {
+            this.transform.localPosition = Vector3.Lerp(start, end, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        this.transform.localPosition = end; 
+    }
+
     private void Move(Point currentPosition, int newX, int newY)
     {
+        float duration = 0.5f;
         MapModel.Map[currentPosition.X, currentPosition.Y] = ObjectsEnum.Empty;
+
+        Vector3 startPos = new Vector3(currentPosition.X, currentPosition.Y, 1);
+
+        Vector3 endPos = new Vector3(newX, newY, 1);
+
+        StartCoroutine(SmoothMove(startPos, endPos, duration));
+
         currentPosition.X = newX;
         currentPosition.Y = newY;
         this.Position = currentPosition;
-        this.transform.localPosition = new Vector3(Position.X, Position.Y, 1);
         MapModel.Map[newX, newY] = this.MobType;
     }
+
     public BaseMobModel FindClosestEnemy()
     {
         Point currentPosition = this.Position;
@@ -105,17 +125,31 @@ public class BaseMobModel : MonoBehaviour
         return roundedDistance <= this.AttackRange;
     }
 
-    public void Attack(BaseMobModel enemy, HealthView healthView)
+    public void Attack(BaseMobModel enemy)
     {
         if (enemy != null)
         {
-            
             enemy.Health -= this.Damage;
-            healthView.Render(Health /MaxHealth);
+
+            UpdateHealthBar(enemy);
+
+            if(enemy.Health <= 0)
+            {
+                MapModel.Map[enemy.Position.X, enemy.Position.Y] = ObjectsEnum.Empty;
+                Destroy(enemy.gameObject);
+            }
         }
             
     }
+    void UpdateHealthBar(BaseMobModel enemy)
+    {
+        var healthBar = enemy.transform.Find("HealthBar");
+        var originalSize = healthBar.GetComponent<SpriteRenderer>().size.x;
+        float healthPercent = (float)enemy.Health / enemy.MaxHealth;
+        healthBar.localScale = new Vector3(healthPercent, healthBar.localScale.y, healthBar.localScale.z); 
 
+        healthBar.localPosition = new Vector3((healthPercent - 1) * originalSize / 2, healthBar.localPosition.y, healthBar.localPosition.z);
+    }
     public void UseSkill()
     {
 

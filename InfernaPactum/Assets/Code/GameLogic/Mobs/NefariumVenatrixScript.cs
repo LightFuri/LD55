@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FurcasScript : BaseMobModel
+public class NefariumVenatrixScript : BaseMobModel
 {
     private void Start()
     {
@@ -22,7 +22,6 @@ public class FurcasScript : BaseMobModel
             {
                 MoveToClosestEnemy(closestEnemy);
             }
-            
         }
     }
 }

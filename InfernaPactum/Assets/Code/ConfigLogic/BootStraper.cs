@@ -15,7 +15,7 @@ public class BootStraper : MonoBehaviour
 
 
         _loadLevel.Init(ConstProvider.LobbyID);
-        _soundHandler.Init(ConstProvider.STANDAED_VOLUME_SOUND);
+        _soundHandler.Init\\\\(ConstProvider.STANDAED_VOLUME_SOUND);
         DontDestroyOnLoad(this);
     }
 
