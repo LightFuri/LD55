@@ -67,13 +67,13 @@ public class InputConroller : MonoBehaviour
 
             var properties = Instantiate(mob, currentCell.transform.position, Quaternion.identity, transform).GetComponent<BaseMobModel>();
 
-            properties.Health = 3;
-            properties.MaxHealth = 3;
-            properties.Damage = 1;
-            properties.AttackRange = 1;
+            properties.Health = SpawnState.Health;
+            properties.MaxHealth = SpawnState.MaxHealth;
+            properties.Damage = SpawnState.Damage;
+            properties.AttackRange = SpawnState.AttackRange;
             properties.Position = cellPosition.Position;
             properties.MobType = SpawnState.MobType.Value;
-            properties.IsEnemy = SpawnState.MobType.Value == ObjectsEnum.FurcasEnemy;
+            properties.IsEnemy = SpawnState.IsEnemy;
             MapModel.Map[cellPosition.Position.X, cellPosition.Position.Y] = SpawnState.MobType.Value;
 
             SpawnState.SpawnEnabled = false;
