@@ -3,6 +3,6 @@
     Empty = 0,
     Furcas = 1,
     FurcasEnemy = 2,
-    NefariumVenatrix = 3,
-    NefariumVenatrixEnemy = 4
+    Venatrix = 3,
+    VenatrixEnemy = 4
 }

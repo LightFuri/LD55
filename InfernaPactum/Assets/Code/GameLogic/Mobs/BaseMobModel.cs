@@ -165,8 +165,4 @@ public class BaseMobModel : MonoBehaviour
 
         healthBar.localPosition = new Vector3((healthPercent - 1) * originalSize / 2, healthBar.localPosition.y, healthBar.localPosition.z);
     }
-    public void UseSkill()
-    {
-
-    }
 }
