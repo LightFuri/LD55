@@ -22,8 +22,11 @@ public class LoadLevel : MonoBehaviour
     public void Load(int id)
     {
         if (gameObject.activeSelf == false)
+        {
             gameObject.SetActive(true);
-
+            _loadBar.value = 0;
+        }
+          
         StartCoroutine(LoadSceneCore(id));
     }
 
