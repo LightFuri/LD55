@@ -3,6 +3,8 @@ using UnityEngine;
 public class InputConroller : MonoBehaviour
 {
     private GameObject currentCell = null;
+    public Sprite blackCell;
+    public Sprite greenCell;
     void Update()
     {
         if (SpawnState.SpawnEnabled)
@@ -55,7 +57,7 @@ public class InputConroller : MonoBehaviour
 
             currentCell = cell;
 
-            SetCellColor(currentCell, Color.blue);
+            SetCellColor(currentCell);
         }
     }
 
@@ -82,12 +84,12 @@ public class InputConroller : MonoBehaviour
         }
     }
 
-    void SetCellColor(GameObject cell, Color color)
+    void SetCellColor(GameObject cell)
     {
         SpriteRenderer spriteRenderer = cell.GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
-            spriteRenderer.color = color;
+            spriteRenderer.sprite = greenCell;
         }
     }
 
@@ -96,7 +98,7 @@ public class InputConroller : MonoBehaviour
         SpriteRenderer spriteRenderer = cell.GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
-            spriteRenderer.color = Color.white;
+            spriteRenderer.sprite = blackCell;
         }
     }
 }
