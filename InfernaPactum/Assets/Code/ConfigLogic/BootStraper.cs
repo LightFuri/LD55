@@ -2,19 +2,27 @@ using UnityEngine;
 
 public class BootStraper : MonoBehaviour
 {
-    [SerializeField] private LoadLevel _loadLevel;
-    int i = 0;
+    private LoadLevel _loadLevel;
+    private SoundHandler _soundHandler;
 
     private void Awake()
     {
-        i++;
-        var prefab = Resources.Load<GameObject>(ConstProvider.PATH_BOOTSTRAPPER);
-        var canvas =  Instantiate(prefab, transform);
+        var canvas = Creat(ConstProvider.PATH_BOOTSTRAPPER_CANVAS);
         _loadLevel = canvas.GetComponent<LoadLevel>();
 
+        var soundHandler = Creat(ConstProvider.PaTH_BOOTSTRAPPER_AUDIOSOURS);
+        _soundHandler = soundHandler.GetComponent<SoundHandler>();
 
-        _loadLevel.Init(ConstProvider.LobbiLeavlID);
-        Debug.Log(i);
+
+        _loadLevel.Init(ConstProvider.LobbyID);
+        _soundHandler.Init(ConstProvider.STANDAED_VOLUME_SOUND);
         DontDestroyOnLoad(this);
+    }
+
+    public GameObject Creat(string path)
+    {
+        var prefab = Resources.Load<GameObject>(path);
+        var product = Instantiate(prefab, transform);
+        return product;
     }
 }
