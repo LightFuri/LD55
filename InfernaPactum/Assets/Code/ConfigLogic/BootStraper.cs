@@ -13,7 +13,7 @@ public class BootStraper : MonoBehaviour
         _loadLevel = canvas.GetComponent<LoadLevel>();
 
 
-        _loadLevel.Init(ConstProvider.LobbiLeavlID);
+        _loadLevel.Init(ConstProvider.LobbyLevelID);
         Debug.Log(i);
         DontDestroyOnLoad(this);
     }

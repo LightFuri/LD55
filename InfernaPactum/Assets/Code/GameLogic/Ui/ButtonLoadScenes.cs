@@ -2,23 +2,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class ButtonLoadScenes : MonoBehaviour
+public class ButtonLoadScene : MonoBehaviour
 {
-    [SerializeField] private int _idScenes;
+    [SerializeField] private int _idScene;
 
-    private Button _nextScense;
+    private Button _nextScene;
     private LoadLevel loadLevel;
 
     private void Start()
     {
-        _nextScense = GetComponent<Button>();
+        _nextScene = GetComponent<Button>();
         loadLevel = FindObjectOfType<LoadLevel>();
-        _nextScense.onClick.AddListener(Run);
+        _nextScene.onClick.AddListener(Run);
     }
 
 
     public void Run()
     {
-        loadLevel.Load(_idScenes);
+        loadLevel.Load(_idScene);
     }
 }
