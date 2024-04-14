@@ -1,58 +1,34 @@
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(AudioSource))]
-public class SoundHandler : MonoBehaviour
+namespace Code.GameLogic.Sound
 {
-    private float _volume;
-    private AudioSource _audioSource;
-    private readonly Dictionary<string, AudioClip> _sounds = new();
-
-    public void Init(float volume)
+    public class SoundHandler : MonoBehaviour
     {
-        _volume = volume;
-        _audioSource = GetComponent<AudioSource>();
-        AddClips();
-        AddVolumeSound(_volume);
-    }
+        [SerializeField] private Slider BGM;
+        [SerializeField] private Slider SFX;
 
-    public void PlaySound(string name)
-    {
-        _audioSource.clip = FindSound(name);   
-    }
+        private SoundController _soundController;
 
-    public void PlayOne(string name)
-    {
-        var clip = FindSound(name);
-        _audioSource.PlayOneShot(clip);
-    }
-
-    public void AddVolumeSound(float volume)
-    {
-        _volume = volume;
-        _audioSource.volume = volume;
-    }
-
-    public void OffSound()=> _audioSource.Stop();
-
-    private AudioClip FindSound(string name) 
-    {
-        _sounds.TryGetValue(name, out AudioClip clip);
-        return clip;
-    }
-    private void AddClips()
-    {
-        AudioClip[] clips = Resources.LoadAll<AudioClip>(ConstProvider.PATH_RESOURCES_SOUND); 
-
-        foreach (AudioClip clip in clips)
+        private void Start()
         {
-            _sounds.Add(clip.name, clip);
+            _soundController = FindObjectOfType<SoundController>();
+            BGM.value = ConstProvider.STANDAED_VOLUME_AUDIO;
+            SFX.value = ConstProvider.STANDAED_VOLUME_MUSIC;
+            BGM.onValueChanged.AddListener(ChangeMusic);
+            SFX.onValueChanged.AddListener(ChangeAudio);
+            
         }
+
+        private void ChangeMusic(float volume)
+        {
+            _soundController.AddVolumeMusic(volume);
+        }
+
+        private void ChangeAudio(float volume)
+        {
+            _soundController.AddVolumeAudio(volume);
+        }
+
     }
-
-
-    
-
-    
-   
 }

@@ -19,17 +19,19 @@ public class LoadLevel : MonoBehaviour
      
     }
 
-    public void Load(int value)
+    public void Load(int id)
     {
-        if(gameObject.activeSelf == false)
+        if (gameObject.activeSelf == false)
             gameObject.SetActive(true);
-     
-        StartCoroutine(LoadSceneCore(value));
+
+        StartCoroutine(LoadSceneCore(id));
     }
 
     private IEnumerator LoadSceneCore(int value)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
+       
+
         _asyncOperation = SceneManager.LoadSceneAsync(value);
 
         while (!_asyncOperation.isDone)
