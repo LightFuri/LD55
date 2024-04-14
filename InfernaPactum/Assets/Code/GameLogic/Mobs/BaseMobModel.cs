@@ -14,6 +14,17 @@ public class BaseMobModel : MonoBehaviour
     public int CastPrice { get; set; }
     public bool IsEnemy { get; set; }
 
+    private SpriteRenderer Model { get; set; }
+    public void Awake()
+    {
+        SpriteRenderer model;
+        transform.Find("Model").TryGetComponent<SpriteRenderer>(out model);
+        if (model != null)
+        {
+            Model = model;
+        }
+    }
+
     public void MoveToClosestEnemy(BaseMobModel enemy)
     {
         if (enemy != null)
@@ -70,12 +81,16 @@ public class BaseMobModel : MonoBehaviour
         float duration = 0.5f;
         MapModel.Map[currentPosition.X, currentPosition.Y] = ObjectsEnum.Empty;
 
-        Vector3 startPos = new Vector3(currentPosition.X, currentPosition.Y, 1);
+        Vector3 startPos = new Vector3(currentPosition.X * ConstProvider.CellSize, currentPosition.Y * ConstProvider.CellSize, 1);
 
-        Vector3 endPos = new Vector3(newX, newY, 1);
+        Vector3 endPos = new Vector3(newX * ConstProvider.CellSize, newY * ConstProvider.CellSize, 1);
 
         StartCoroutine(SmoothMove(startPos, endPos, duration));
 
+        if (Model != null)
+        {
+            Model.flipX = newX > currentPosition.X;
+        }
         currentPosition.X = newX;
         currentPosition.Y = newY;
         this.Position = currentPosition;

@@ -5,8 +5,6 @@ using UnityEngine;
 public class RenderMap : MonoBehaviour
 {
     public GameObject squarePrefab;
-    public float squareSize = 1f;
-
     private void Start()
     {
         MapModel.Initialize();
@@ -21,7 +19,7 @@ public class RenderMap : MonoBehaviour
             {
                 if (MapModel.Map[x, y] == ObjectsEnum.Empty)
                 {
-                    var cell = Instantiate(squarePrefab, new Vector3(x * squareSize + transform.position.x, y * squareSize + transform.position.y, 0), Quaternion.identity, transform);
+                    var cell = Instantiate(squarePrefab, new Vector3(x * ConstProvider.CellSize + transform.position.x, y * ConstProvider.CellSize + transform.position.y, 0), Quaternion.identity, transform);
                     cell.GetComponent<Cell>().Position = new Point(x, y);
                 }
             }

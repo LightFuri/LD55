@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 4962832203251824215}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1421952084543350659}
@@ -139,6 +139,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1421952084543350659}
     m_Modifications:
     - target: {fileID: 2975886318826928297, guid: b425eb1b80ee8a6469ce67bf90482b20, type: 3}
+      propertyPath: m_Color.b
+      value: 0.27518415
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975886318826928297, guid: b425eb1b80ee8a6469ce67bf90482b20, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975886318826928297, guid: b425eb1b80ee8a6469ce67bf90482b20, type: 3}
       propertyPath: m_SpriteSortPoint
       value: 1
       objectReference: {fileID: 0}
@@ -160,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9157686233522084048, guid: b425eb1b80ee8a6469ce67bf90482b20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.45
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 9157686233522084048, guid: b425eb1b80ee8a6469ce67bf90482b20, type: 3}
       propertyPath: m_LocalPosition.z
