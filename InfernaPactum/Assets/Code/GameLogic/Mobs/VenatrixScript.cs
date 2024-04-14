@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class NefariumVenatrixScript : BaseMobModel
+public class VenatrixScript : BaseMobModel
 {
     private void Start()
     {
