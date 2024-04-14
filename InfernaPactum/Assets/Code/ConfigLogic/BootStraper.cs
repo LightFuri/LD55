@@ -10,11 +10,11 @@ public class BootStraper : MonoBehaviour
         var canvas = Creat(ConstProvider.PATH_BOOTSTRAPPER_CANVAS);
         _loadLevel = canvas.GetComponent<LoadLevel>();
 
-        var soundHandler = Creat(ConstProvider.PaTH_BOOTSTRAPPER_AUDIOSOURS);
+        var soundHandler = Creat(ConstProvider.PATH_BOOTSTRAPPER_AUDIOSOURS);
         _soundHandler = soundHandler.GetComponent<SoundController>();
 
 
-        _loadLevel.Init(ConstProvider.LobbyID);
+        _loadLevel.Init(ConstProvider.LOBBY_ID);
         _soundHandler.Init(ConstProvider.STANDAED_VOLUME_AUDIO, ConstProvider.STANDAED_VOLUME_MUSIC);
         DontDestroyOnLoad(this);
     }
